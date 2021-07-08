@@ -53,10 +53,6 @@
       <Project>{c854759e-c323-4b12-ba45-c63c6ca2f85f}</Project>
       <Name>Epam.Library.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Epam.Labrary.JsonDAL\Epam.Library.JsonDAL.csproj">
-      <Project>{8c2b0f92-19c7-4e47-8de7-7ae3290b7168}</Project>
-      <Name>Epam.Library.JsonDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Epam.Library.BLL.Interfaces\Epam.Library.BLL.Interfaces.csproj">
       <Project>{a720dd8b-93e4-4d80-b5b2-2a1cb660459f}</Project>
       <Name>Epam.Library.BLL.Interfaces</Name>

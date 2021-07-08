@@ -9,7 +9,7 @@ namespace Epam.Library.Common.Entities
 {
     public class Book
     {
-        public Book(Guid id, string name, string author, int yearOfPublication)
+        public Book(int id, string name, string author, int yearOfPublication)
         {
             Id = id;
             Name = name;
@@ -17,7 +17,7 @@ namespace Epam.Library.Common.Entities
             YearOfPublication = yearOfPublication;
         }
 
-        public Guid Id { get; private set; }
+        public int Id { get; private set; }
 
         public string Name { get; private set; }
 

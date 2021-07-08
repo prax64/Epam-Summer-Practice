@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,16 @@ namespace Epam.Library.ConsolePL
     {
         static void Main(string[] args)
         {
+
             var bll = DependencyResolver.Instance.BookLogic;
 
-            var str = Console.ReadLine();
+            //foreach (var item in bll.GetLibrary())
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            bll.AddBook(new Book() )
-            
+            //Console.WriteLine(bll.GetBook(1));
+            Console.WriteLine(bll.AddBook("товарища", "Эрих Мария Ремарк", 1945));
         }
     }
 }

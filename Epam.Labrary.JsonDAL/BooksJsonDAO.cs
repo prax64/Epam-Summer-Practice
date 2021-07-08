@@ -16,38 +16,49 @@ namespace Epam.Library.DAL.JsonDAL
 
         public void AddBook(Book book)
         {
-            string json = JsonConvert.SerializeObject(book);
+            //string json = JsonConvert.SerializeObject(book);
 
-            File.WriteAllText(GetFilePathById(book.Id), json);
+            //File.WriteAllText(GetFilePathById(book.Id), json);
+            throw new Exception();
         }
 
-        public void RemoveBook(Guid id)
+        public void RemoveBook(int id)
         {
-            if (File.Exists(GetFilePathById(id)))
-            {
-                File.Delete(GetFilePathById(id));
-            }
-            else throw new FileNotFoundException(
-                string.Format("File with name {0} at path {1} isn't created!", 
-                GetFilePathById(id), JSON_FILES_PATH));
+            //if (File.Exists(GetFilePathById(id)))
+            //{
+            //    File.Delete(GetFilePathById(id));
+            //}
+            //else throw new FileNotFoundException(
+            //    string.Format("File with name {0} at path {1} isn't created!", 
+            //    GetFilePathById(id), JSON_FILES_PATH));
+            throw new Exception();
+
         }
 
-        public void EditBook(Guid id, string newName, string newAuthor, int newYearOfPublication)
+        public void EditBook(int id, string newName, string newAuthor, int newYearOfPublication)
         {
-            if (!File.Exists(GetFilePathById(id)))
-            {
-                throw new FileNotFoundException(
-                string.Format("File with name {0} at path {1} isn't created!", id, JSON_FILES_PATH));
-            }
-            Book book = JsonConvert.DeserializeObject<Book>(File.ReadAllText(GetFilePathById(id)));
+            //if (!File.Exists(GetFilePathById(id)))
+            //{
+            //    throw new FileNotFoundException(
+            //    string.Format("File with name {0} at path {1} isn't created!", id, JSON_FILES_PATH));
+            //}
+            //Book book = JsonConvert.DeserializeObject<Book>(File.ReadAllText(GetFilePathById(id)));
 
-            book.EditName(newName);
-            book.EditAuthor(newAuthor);
-            book.EditYearOfPublication(newYearOfPublication);
+            //book.EditName(newName);
+            //book.EditAuthor(newAuthor);
+            //book.EditYearOfPublication(newYearOfPublication);
 
-            File.WriteAllText(GetFilePathById(book.Id), JsonConvert.SerializeObject(book));
+            //File.WriteAllText(GetFilePathById(book.Id), JsonConvert.SerializeObject(book));
+            throw new Exception();
         }
-
+        public Book GetBook(int id)
+        {
+            throw new Exception();
+        }
+        public IEnumerable<Book> GetLibrary(bool orderedById = true)
+        {
+            throw new Exception();
+        }
         public string GetFilePathById(Guid id) => JSON_FILES_PATH + id + ".json";
 
     }

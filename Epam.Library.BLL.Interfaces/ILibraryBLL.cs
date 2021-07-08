@@ -9,12 +9,12 @@ namespace Epam.Library.BLL.Interfaces
 {
     public interface ILibraryLogic
     {
-        bool AddBook(Book book);
+        Book AddBook(string name, string author, int yearOfPublication);
 
-        void RemoveBook(Guid id);
+        void RemoveBook(int id);
         void RemoveBook(Book book);
 
-        void EditBook(Guid id, string newName, string newAuthor, int newYearOfPublication);
+        void EditBook(int id, string newName, string newAuthor, int newYearOfPublication);
 
         Book GetBook(int id);
         IEnumerable<Book> GetLibrary(bool orderedById = true);

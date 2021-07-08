@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Epam.Library.BLL.BLL;
 using Epam.Library.BLL.Interfaces;
 using Epam.Library.DAL.Interfaces;
-using Epam.Library.DAL.JsonDAL;
 using Epam.Library.DAL.SqlDAL;
 
 namespace Epam.Library.Dependencies
