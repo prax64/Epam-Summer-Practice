@@ -10,7 +10,7 @@ using Epam.Library.DAL.Interfaces;
 
 namespace Epam.Library.DAL.JsonDAL
 {
-    public class BooksJsonDAO : IBookDAO
+    public class BooksJsonDAO : ILibraryDAO
     {
         public const string JSON_FILES_PATH = @"C:\Users\storm1\source\repos\Library\Files";
 

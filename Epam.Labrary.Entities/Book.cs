@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,5 +45,8 @@ namespace Epam.Library.Common.Entities
         {
             YearOfPublication = yearOfPublication;
         }
+
+        public override string ToString() =>
+            JsonConvert.SerializeObject(this);
     }
 }

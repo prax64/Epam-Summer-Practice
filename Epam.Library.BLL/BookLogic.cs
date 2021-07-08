@@ -12,10 +12,10 @@ namespace Epam.Library.BLL.BLL
 {
     public class BookLogic : ILibraryLogic
     {
-        private IBookDAO _bookDAO;
-        public BookLogic(IBookDAO bookDAO) =>
+        private ILibraryDAO _bookDAO;
+        public BookLogic(ILibraryDAO bookDAO) =>
             _bookDAO = bookDAO;
-        public void AddBook(Book book) =>
+        public bool AddBook(Book book) =>
             _bookDAO.AddBook(book);
 
         public void RemoveBook(Guid id) =>
@@ -24,5 +24,8 @@ namespace Epam.Library.BLL.BLL
 
         public void EditBook(Guid id, string newName, string newAuthor, int newYearOfPublication) =>
             _bookDAO.EditBook(id, newName, newAuthor, newYearOfPublication);
+        public Book GetBook(int id) => _bookDAO.GetBook(id);
+        public IEnumerable<Book> GetLibrary(bool orderedById = true) =>
+            _bookDAO.GetLibrary (orderedById);
     }
 }

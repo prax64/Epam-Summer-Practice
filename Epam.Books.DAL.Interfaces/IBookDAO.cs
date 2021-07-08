@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 
 namespace Epam.Library.DAL.Interfaces
 {
-    public interface IBookDAO
+    public interface ILibraryDAO
     {
         void AddBook(Book book);
 
         void RemoveBook(Guid id);
 
         void EditBook(Guid id, string newName, string newAuthor, int newYearOfPublication);
+
+        Book GetBook(int id);
+        IEnumerable<Book> GetLibrary(bool orderedById);
     }
 }

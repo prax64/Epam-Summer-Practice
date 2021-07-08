@@ -8,7 +8,7 @@ using Epam.Library.DAL.Interfaces;
 
 namespace Epam.Library.DAL.SqlDAL
 {
-    class BookSqlDAO : IBookDAO
+    public class LibrarySqlDAO : ILibraryDAO
     {
 
         public void AddBook(Book book)
@@ -24,6 +24,16 @@ namespace Epam.Library.DAL.SqlDAL
         public void EditBook(Guid id, string newName, string newAuthor, int newYearOfPublication)
         {
 
+        }
+
+
+        public Book GetBook(int id)
+        {
+            throw new Exception();
+        }
+        public IEnumerable<Book> GetLibrary(bool orderedById)
+        {
+            throw new Exception();
         }
 
     }
