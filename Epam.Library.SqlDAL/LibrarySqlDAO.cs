@@ -50,9 +50,35 @@ namespace Epam.Library.DAL.SqlDAL
             }
         }
 
-        public void RemoveBook(int id)
+        public Book RemoveBook(int id)
         {
+            using (_connection)
+            {
+                var stProc = "Book_Remove";
 
+                var comnand = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                comnand.Parameters.AddWithValue("@id", id);
+
+                _connection.Open();
+
+                var reader = comnand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new Book(
+                        id: (int)reader["Id"],
+                        name: reader["Name"] as string,
+                        author: reader["Name"] as string,
+                        yearOfPublication: (int)reader["YearOfPublication"]);
+                }
+
+
+                throw new InvalidOperationException("Cannot find Book with Id = " + id);
+            }
         }
 
         public void EditBook(int id, string newName, string newAuthor, int newYearOfPublication)

@@ -11,7 +11,7 @@ namespace Epam.Library.BLL.Interfaces
     {
         Book AddBook(string name, string author, int yearOfPublication);
 
-        void RemoveBook(int id);
+        Book RemoveBook(int id);
         void RemoveBook(Book book);
 
         void EditBook(int id, string newName, string newAuthor, int newYearOfPublication);

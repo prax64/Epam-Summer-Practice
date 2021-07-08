@@ -88,3 +88,21 @@ BEGIN
 		END
 END
 GO
+----------------------
+CREATE PROCEDURE dbo.Book_Remove
+	@id int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT TOP 1
+		b.Id,b.Name, a.Name, b.YearOfPublication
+	FROM Book b, Author a
+	WHERE b.Id = @id AND b.Author_id = a.Id
+
+	DELETE 
+	FROM Book
+	WHERE Id = @id
+
+END
+GO

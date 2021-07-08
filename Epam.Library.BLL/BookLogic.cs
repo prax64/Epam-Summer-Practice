@@ -17,7 +17,7 @@ namespace Epam.Library.BLL.BLL
         public Book AddBook(string name, string author, int yearOfPublication) =>
             _bookDAO.AddBook(name, author, yearOfPublication);
 
-        public void RemoveBook(int id) =>
+        public Book RemoveBook(int id) =>
             _bookDAO.RemoveBook(id);    
         public void RemoveBook(Book book) => RemoveBook(book.Id);
 
