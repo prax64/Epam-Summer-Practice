@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Epam.Library.DAL.SqlDAL
 {
-    public class LibrarySqlDAO : ILibraryDAO
+    public class BooksSqlDAO : IBooksDAO
     {
         private static string _connectionString = ConfigurationManager.ConnectionStrings["default"].ConnectionString;
         private static SqlConnection _connection = new SqlConnection(_connectionString);

@@ -9,10 +9,10 @@ using Epam.Library.BLL.Interfaces;
 
 namespace Epam.Library.BLL.BLL
 {
-    public class BookLogic : ILibraryLogic
+    public class BookLogic : IBooksLogic
     {
-        private ILibraryDAO _bookDAO;
-        public BookLogic(ILibraryDAO bookDAO) =>
+        private IBooksDAO _bookDAO;
+        public BookLogic(IBooksDAO bookDAO) =>
             _bookDAO = bookDAO;
         public Book AddBook(string name, string author, int yearOfPublication) =>
             _bookDAO.AddBook(name, author, yearOfPublication);

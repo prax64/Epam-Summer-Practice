@@ -19,9 +19,9 @@ namespace Epam.Library.Dependencies
              _instance ??= new DependencyResolver();
         #endregion
 
-        public ILibraryDAO LibraryDAO => new LibrarySqlDAO();
+        public IBooksDAO LibraryDAO => new BooksSqlDAO();
 
-        public ILibraryLogic BookLogic => new BookLogic(LibraryDAO);
+        public IBooksLogic BookLogic => new BookLogic(LibraryDAO);
 
     }
 }

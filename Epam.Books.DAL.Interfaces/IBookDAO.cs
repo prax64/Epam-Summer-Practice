@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Epam.Library.DAL.Interfaces
 {
-    public interface ILibraryDAO
+    public interface IBooksDAO
     {
         Book AddBook(string name, string author, int yearOfPublication);
 

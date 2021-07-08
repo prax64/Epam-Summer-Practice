@@ -7,7 +7,7 @@ using Epam.Library.Common.Entities;
 
 namespace Epam.Library.BLL.Interfaces
 {
-    public interface ILibraryLogic
+    public interface IBooksLogic
     {
         Book AddBook(string name, string author, int yearOfPublication);
 
