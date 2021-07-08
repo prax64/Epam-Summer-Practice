@@ -131,3 +131,17 @@ BEGIN
 
 END
 GO
+---------------------------
+CREATE PROCEDURE dbo.AllBooksByAuthor
+	@Author nvarchar(45)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT b.Id, b.Name, a.Name AS Author, b.YearOfPublication
+	FROM Author a
+	LEFT JOIN Book b ON b.Author_id = a.Id
+	WHERE a.Name IN (@Author)
+
+END
+GO

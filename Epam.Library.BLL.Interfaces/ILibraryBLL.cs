@@ -18,5 +18,7 @@ namespace Epam.Library.BLL.Interfaces
 
         Book GetBook(int id);
         IEnumerable<Book> GetLibrary(bool orderedById = true);
+
+        IEnumerable<Book> GetAllBooksByAuthor(string author);
     }
 }

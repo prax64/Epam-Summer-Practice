@@ -167,5 +167,33 @@ namespace Epam.Library.DAL.SqlDAL
             }
         }
 
+        public IEnumerable<Book> GetAllBooksByAuthor(string author)
+        {
+            using (_connection)
+            {
+                var stProc = "AllBooksByAuthor";
+
+                var comnand = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                comnand.Parameters.AddWithValue("@Author", author);
+
+                _connection.Open();
+
+                var reader = comnand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    yield return new Book(
+                        id: (int)reader["Id"],
+                        name: reader["Name"] as string,
+                        author: reader["Author"] as string,
+                        yearOfPublication: (int)reader["YearOfPublication"]);
+                }
+            }
+        }
+
     }
 }

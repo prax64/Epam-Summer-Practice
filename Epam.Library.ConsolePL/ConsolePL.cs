@@ -27,7 +27,12 @@ namespace Epam.Library.ConsolePL
 
             //Console.WriteLine(bll.RemoveBook(4));
 
-            Console.WriteLine(bll.EditBook(1,"товар213jjjища", 1945));
+            //Console.WriteLine(bll.EditBook(1,"товар213jjjища", 1945));
+
+            foreach (var item in bll.GetAllBooksByAuthor("Эрих Мария Ремарк"))
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

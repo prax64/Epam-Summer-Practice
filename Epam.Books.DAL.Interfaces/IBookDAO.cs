@@ -17,5 +17,7 @@ namespace Epam.Library.DAL.Interfaces
 
         Book GetBook(int id);
         IEnumerable<Book> GetLibrary(bool orderedById);
+
+        IEnumerable<Book> GetAllBooksByAuthor(string author);
     }
 }

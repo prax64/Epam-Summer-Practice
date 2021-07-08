@@ -26,5 +26,7 @@ namespace Epam.Library.BLL.BLL
         public Book GetBook(int id) => _bookDAO.GetBook(id);
         public IEnumerable<Book> GetLibrary(bool orderedById = true) =>
             _bookDAO.GetLibrary (orderedById);
+        public IEnumerable<Book> GetAllBooksByAuthor(string author) =>
+            _bookDAO.GetAllBooksByAuthor(author);
     }
 }
