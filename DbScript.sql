@@ -89,6 +89,11 @@ BEGIN
 END
 GO
 ----------------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 CREATE PROCEDURE dbo.Book_Remove
 	@id int
 AS
@@ -107,6 +112,11 @@ BEGIN
 END
 GO
 ------------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 CREATE PROCEDURE dbo.Book_Edit
 	@id int,
 	@Name nvarchar(45),
@@ -132,6 +142,11 @@ BEGIN
 END
 GO
 ---------------------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 CREATE PROCEDURE dbo.AllBooksByAuthor
 	@Author nvarchar(45)
 AS
