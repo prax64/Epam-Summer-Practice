@@ -14,7 +14,7 @@ namespace Epam.Library.BLL.Interfaces
         Book RemoveBook(int id);
         void RemoveBook(Book book);
 
-        void EditBook(int id, string newName, string newAuthor, int newYearOfPublication);
+        Book EditBook(int id, string newName, int newYearOfPublication);
 
         Book GetBook(int id);
         IEnumerable<Book> GetLibrary(bool orderedById = true);

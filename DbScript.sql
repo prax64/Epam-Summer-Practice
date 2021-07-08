@@ -38,7 +38,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT TOP 1
-		b.Id,b.Name, a.Name, b.YearOfPublication
+		b.Id,b.Name, a.Name AS Author, b.YearOfPublication
 	FROM Book b, Author a
 	WHERE b.Id = @id AND b.Author_id = a.Id
 END
@@ -96,13 +96,38 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT TOP 1
-		b.Id,b.Name, a.Name, b.YearOfPublication
+		b.Id,b.Name, a.Name AS Author, b.YearOfPublication
 	FROM Book b, Author a
 	WHERE b.Id = @id AND b.Author_id = a.Id
 
 	DELETE 
 	FROM Book
 	WHERE Id = @id
+
+END
+GO
+------------------
+CREATE PROCEDURE dbo.Book_Edit
+	@id int,
+	@Name nvarchar(45),
+	@YearOfPublication nvarchar(45)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	UPDATE Book 
+	SET Name=@Name, YearOfPublication = @YearOfPublication
+	WHERE Id=@id 
+
+	--UPDATE Book
+	--SET Name=@Name, YearOfPublication = @YearOfPublication
+	--FROM Author a
+	--WHERE Book.Id=@id AND a.Name LIKE '%@Author_name%'
+
+	SELECT TOP 1
+		b.Id, b.Name, a.Name AS Author, b.YearOfPublication
+	FROM Book b, Author a
+	WHERE b.Id = @id AND b.Author_id = a.Id
 
 END
 GO

@@ -21,8 +21,8 @@ namespace Epam.Library.BLL.BLL
             _bookDAO.RemoveBook(id);    
         public void RemoveBook(Book book) => RemoveBook(book.Id);
 
-        public void EditBook(int id, string newName, string newAuthor, int newYearOfPublication) =>
-            _bookDAO.EditBook(id, newName, newAuthor, newYearOfPublication);
+        public Book EditBook(int id, string newName, int newYearOfPublication) =>
+            _bookDAO.EditBook(id, newName, newYearOfPublication);
         public Book GetBook(int id) => _bookDAO.GetBook(id);
         public IEnumerable<Book> GetLibrary(bool orderedById = true) =>
             _bookDAO.GetLibrary (orderedById);

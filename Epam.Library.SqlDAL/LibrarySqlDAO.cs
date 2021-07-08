@@ -72,7 +72,7 @@ namespace Epam.Library.DAL.SqlDAL
                     return new Book(
                         id: (int)reader["Id"],
                         name: reader["Name"] as string,
-                        author: reader["Name"] as string,
+                        author: reader["Author"] as string,
                         yearOfPublication: (int)reader["YearOfPublication"]);
                 }
 
@@ -81,9 +81,36 @@ namespace Epam.Library.DAL.SqlDAL
             }
         }
 
-        public void EditBook(int id, string newName, string newAuthor, int newYearOfPublication)
+        public Book EditBook(int id, string newName, int newYearOfPublication)
         {
+            using (_connection)
+            {
+                var stProc = "Book_Edit";
 
+                var comnand = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                comnand.Parameters.AddWithValue("@id", id);
+                comnand.Parameters.AddWithValue("@Name", newName);
+                comnand.Parameters.AddWithValue("@YearOfPublication", newYearOfPublication);
+
+                _connection.Open();
+
+                var reader = comnand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new Book(
+                        id: (int)reader["Id"],
+                        name: reader["Name"] as string,
+                        author: reader["Author"] as string,
+                        yearOfPublication: (int)reader["YearOfPublication"]);
+                }
+
+                throw new InvalidOperationException("Cannot find Book with Id = " + id);
+            }
         }
 
 
@@ -109,7 +136,7 @@ namespace Epam.Library.DAL.SqlDAL
                     return new Book(
                         id: (int)reader["Id"],
                         name: reader["Name"] as string,
-                        author: reader["Name"] as string,
+                        author: reader["Author"] as string,
                         yearOfPublication: (int)reader["YearOfPublication"]);
                 }
 
