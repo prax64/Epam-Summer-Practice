@@ -49,7 +49,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE dbo.Book_Adaa
+CREATE PROCEDURE dbo.Book_Add
 	@Name nvarchar(45),
 	@Author_name nvarchar(45), 
 	@YearOfPublication nvarchar(45)

@@ -19,7 +19,7 @@ namespace Epam.Library.DAL.SqlDAL
         {
             using (_connection)
             {
-                var stProc = "Book_Adaa";
+                var stProc = "Book_Add";
 
                 var comnand = new SqlCommand(stProc, _connection)
                 {
