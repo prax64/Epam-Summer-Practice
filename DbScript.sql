@@ -172,3 +172,26 @@ BEGIN
 
 END
 GO
+---------------
+--User PROCEDURE
+---------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE dbo.User_Authentication
+	@Name nvarchar(45),
+	@Password nvarchar(45)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT CASE 
+	WHEN EXISTS(SELECT *
+				FROM dbo.[User] u
+				WHERE u.Name = @Name AND u.Password = @Password)
+			THEN CAST(1 AS bit)
+			ELSE CAST(0 AS bit)
+			End
+END

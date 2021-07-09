@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Epam.Library.BLL
+namespace Epam.Library.BLL.BLL
 {
     public class UserLogic : IUserLogic
     {
@@ -26,7 +26,7 @@ namespace Epam.Library.BLL
         public IEnumerable<User> GetUsers(int id) =>
             _userDAO.GetUsers(id);
 
-        public User AuthenticationUser(string name, string password) =>
+        public bool AuthenticationUser(string name, string password) =>
             _userDAO.AuthenticationUser(name, password);
     }
 }

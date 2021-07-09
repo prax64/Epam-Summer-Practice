@@ -35,9 +35,34 @@ namespace Epam.Library.DAL.SqlDAL
             throw new NotImplementedException();
         }
 
-        public User AuthenticationUser(string name, string password)
+        public bool AuthenticationUser(string name, string password)
         {
-            throw new NotImplementedException();
+            using (_connection)
+            {
+                var stProc = "User_Authentication";
+
+                var comnand = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                comnand.Parameters.AddWithValue("@Name", name);
+                comnand.Parameters.AddWithValue("@Password", password);
+
+                _connection.Open();
+
+                var resuilt = comnand.ExecuteScalar();
+
+                if (resuilt != null)
+                {
+                    return (bool)resuilt;
+                }
+
+                throw new InvalidOperationException(
+                    string.Format("Cannot find name or password with paramrters: {0}, {1}",
+                    name, password
+                    ));
+            }
         }
     }
 }

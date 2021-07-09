@@ -29,10 +29,13 @@ namespace Epam.Library.ConsolePL
 
             //Console.WriteLine(bll.EditBook(1,"товар213jjjища", 1945));
 
-            foreach (var item in bll.GetAllBooksByAuthor("Эрих Мария Ремарк"))
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in bll.GetAllBooksByAuthor("Эрих Мария Ремарк"))
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //////////////
+            var bllUser = DependencyResolver.Instance.UserLogic;
+            Console.WriteLine(bllUser.AuthenticationUser("Admin", "Password"));
         }
     }
 }
