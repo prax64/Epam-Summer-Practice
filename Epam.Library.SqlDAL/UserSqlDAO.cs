@@ -22,7 +22,36 @@ namespace Epam.Library.DAL.SqlDAL
 
         public User EditUser(int id, string newName, string newPassword, string newEmail)
         {
-            throw new NotImplementedException();
+            using (_connection)
+            {
+                var stProc = "User_Edit";
+
+                var comnand = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                comnand.Parameters.AddWithValue("@Id", id);
+                comnand.Parameters.AddWithValue("@NewName", newName);
+                comnand.Parameters.AddWithValue("@NewPassword", newPassword);
+                comnand.Parameters.AddWithValue("@NewEmail", newEmail);
+
+                _connection.Open();
+
+                var reader = comnand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new User(
+                        id: (int)reader["Id"],
+                        name: reader["Name"] as string,
+                        password: reader["Password"] as string,
+                        email: reader["Email"] as string);
+                }
+
+
+                throw new InvalidOperationException("Cannot find Book with ID = " + id);
+            }
         }
 
         public User GetUserInfo(string name)

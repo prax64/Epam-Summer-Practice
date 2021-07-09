@@ -211,3 +211,29 @@ BEGIN
 	FROM dbo.[User] u
 	WHERE Name = @Name
 END
+--------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE dbo.User_Edit
+	@Id int,
+	@NewName nvarchar(45),
+	@NewPassword nvarchar(45),
+	@NewEmail nvarchar(45)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	UPDATE dbo.[User] 
+	SET Name = @NewName, Password = @NewPassword, Email = @NewEmail
+	WHERE Id = @Id
+
+	SELECT TOP 1
+		Id, Name, Password, Email
+	FROM dbo.[User] 
+	WHERE Id = @Id
+
+END
+GO

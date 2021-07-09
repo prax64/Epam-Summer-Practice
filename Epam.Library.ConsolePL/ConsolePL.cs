@@ -37,7 +37,9 @@ namespace Epam.Library.ConsolePL
             var bllUser = DependencyResolver.Instance.UserLogic;
             //Console.WriteLine(bllUser.AuthenticationUser("Admin", "Password"));
 
-            Console.WriteLine(bllUser.GetUserInfo("Admin"));
+            //Console.WriteLine(bllUser.GetUserInfo("Admin"));
+
+            Console.WriteLine(bllUser.EditUser(1, "Adm1n", "Password", "Admin@gmail.com"));
         }
     }
 }
