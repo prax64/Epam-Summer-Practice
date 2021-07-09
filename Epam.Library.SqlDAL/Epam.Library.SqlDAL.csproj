@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BooksSqlDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserSqlDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Epam.Books.DAL.Interfaces\Epam.Library.DAL.Interfaces.csproj">

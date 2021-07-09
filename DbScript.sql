@@ -16,6 +16,13 @@ CREATE TABLE dbo.Book(
 	YearOfPublication int NOT NULL,
 )
 GO
+CREATE TABLE dbo.[User](
+	Id int IDENTITY(1,1) NOT NULL CONSTRAINT PK_User PRIMARY KEY,
+	Name nvarchar(45) NOT NULL,
+	Password nvarchar(45) NOT NULL,
+	Email nvarchar(45) NOT NULL,
+)
+GO
 INSERT INTO Library.dbo.Author
 (Name) VALUES 
 ( N'Джон Стейнбек'),
@@ -25,6 +32,11 @@ INSERT INTO Library.dbo.Book
 (Author_id, Name, YearOfPublication) VALUES 
 ( 1, N'О мышах и людях', 1937),
 ( 2, N'Черный обелиск', 1956);
+GO
+INSERT INTO Library.dbo.[User]
+(Name, Password, Email) VALUES 
+( N'Admin', N'Password', N'Admin@gmail.com'),
+( N'User', N'Password', N'User@gmail.com');
 ------------------
 SET ANSI_NULLS ON
 GO

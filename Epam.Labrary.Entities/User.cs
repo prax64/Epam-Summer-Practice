@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Epam.Labrary.Entities
+namespace Epam.Library.Common.Entities
 {
-    class User
+    public class User
     {
         public User(int id, string name, string password, string email)
         {
