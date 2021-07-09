@@ -17,5 +17,7 @@ namespace Epam.Library.DAL.Interfaces
 
         IEnumerable<User> GetUsers(int id);
 
+        User AuthenticationUser(string name, string password);
+
     }
 }

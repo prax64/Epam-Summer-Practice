@@ -16,5 +16,7 @@ namespace Epam.Library.BLL.Interfaces
         User EditUser(int id, string newName, string newPassword, string newEmail);
 
         IEnumerable<User> GetUsers(int id);
+
+        User AuthenticationUser(string name, string password);
     }
 }

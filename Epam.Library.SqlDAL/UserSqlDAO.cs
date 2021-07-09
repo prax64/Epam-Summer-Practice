@@ -34,5 +34,10 @@ namespace Epam.Library.DAL.SqlDAL
         {
             throw new NotImplementedException();
         }
+
+        public User AuthenticationUser(string name, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
