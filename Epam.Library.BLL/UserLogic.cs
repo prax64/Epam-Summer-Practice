@@ -23,8 +23,8 @@ namespace Epam.Library.BLL.BLL
 
         public User EditUser(int id, string newName, string newPassword, string newEmail) =>
             _userDAO.EditUser(id, newName, newPassword, newEmail);
-        public IEnumerable<User> GetUsers(int id) =>
-            _userDAO.GetUsers(id);
+        public User GetUserInfo(string name) =>
+            _userDAO.GetUserInfo(name);
 
         public bool AuthenticationUser(string name, string password) =>
             _userDAO.AuthenticationUser(name, password);

@@ -18,9 +18,9 @@ CREATE TABLE dbo.Book(
 GO
 CREATE TABLE dbo.[User](
 	Id int IDENTITY(1,1) NOT NULL CONSTRAINT PK_User PRIMARY KEY,
-	Name nvarchar(45) NOT NULL,
+	Name nvarchar(45) NOT NULL UNIQUE,
 	Password nvarchar(45) NOT NULL,
-	Email nvarchar(45) NOT NULL,
+	Email nvarchar(45) NOT NULL UNIQUE,
 )
 GO
 INSERT INTO Library.dbo.Author
@@ -194,4 +194,20 @@ BEGIN
 			THEN CAST(1 AS bit)
 			ELSE CAST(0 AS bit)
 			End
+END
+-------------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE dbo.User_GetByName
+	@Name nvarchar(45)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT u.Id, u.Name, u.Email
+	FROM dbo.[User] u
+	WHERE Name = @Name
 END

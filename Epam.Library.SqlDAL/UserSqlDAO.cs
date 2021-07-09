@@ -25,11 +25,35 @@ namespace Epam.Library.DAL.SqlDAL
             throw new NotImplementedException();
         }
 
-        public IEnumerable<User> GetUsers(int id)
+        public User GetUserInfo(string name)
         {
-            throw new NotImplementedException();
-        }
+            using (_connection)
+            {
+                var stProc = "User_GetByName";
 
+                var comnand = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                comnand.Parameters.AddWithValue("@Name", name);
+
+                _connection.Open();
+
+                var reader = comnand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    return new User(
+                        id: (int)reader["Id"],
+                        name: reader["Name"] as string,
+                        email: reader["Email"] as string);
+                }
+
+
+                throw new InvalidOperationException("Cannot find Book with Name = " + name);
+            }
+        }
         public User RemoveUser(int id)
         {
             throw new NotImplementedException();
